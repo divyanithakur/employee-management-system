@@ -7,7 +7,8 @@ while True:
     print("2. View Employees")
     print("3. Update Employee")
     print("4. Delete Employee")
-    print("5. Exit")
+    print("5. Search Employee")
+    print("6. Exit")
 
     choice = input("Enter Choice: ")
 
@@ -36,6 +37,11 @@ while True:
         delete_employee(emp_id)
 
     elif choice == "5":
+
+        emp_id = int(input("Enter Employee ID: "))
+        search_employee(emp_id)
+
+    elif choice == "6":
         print("Good Bye")
         break
 

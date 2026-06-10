@@ -26,6 +26,8 @@ def view_employees():
 
     rows = cursor.fetchall()
 
+    print("\n===== EMPLOYEE LIST =====")
+
     for row in rows:
         print(row)
 
@@ -58,3 +60,22 @@ def delete_employee(emp_id):
     conn.close()
 
     print("Employee Deleted Successfully")
+
+
+def search_employee(emp_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    query = "SELECT * FROM employees WHERE emp_id=%s"
+
+    cursor.execute(query, (emp_id,))
+
+    employee = cursor.fetchone()
+
+    if employee:
+        print("\n===== EMPLOYEE FOUND =====")
+        print(employee)
+    else:
+        print("Employee Not Found")
+
+    conn.close()
